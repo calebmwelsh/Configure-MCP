@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Setting Up an MCP Server with AI Agents: A Comprehensive Guide</title>
+    <title>Setting Up MCP Server with AI Agents: A Step-by-Step Guide</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism-tomorrow.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
@@ -16,10 +16,9 @@
                 <h1>MCP Server Setup Guide</h1>
                 <div class="nav-links">
                     <a href="#introduction">Introduction</a>
-                    <a href="#prerequisites">Prerequisites</a>
-                    <a href="#setup">Setup</a>
-                    <a href="#configuration">Configuration</a>
-                    <a href="#usage">Usage</a>
+                    <a href="#cursor">Cursor</a>
+                    <a href="#claude">Claude</a>
+                    <a href="#windsurf">Windsurf</a>
                     <a href="#conclusion">Conclusion</a>
                 </div>
             </div>
@@ -27,85 +26,167 @@
     </header>
 
     <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Setting Up MCP Server with AI Agents</h1>
+                <p>A step-by-step guide to implementing MCP Server with your favorite AI agents</p>
+                <div class="hero-buttons">
+                    <a href="#introduction" class="button primary">Get Started</a>
+                    <a href="https://github.com/yourusername/mcp-configuration" class="button secondary">View on GitHub</a>
+                </div>
+            </div>
+        </section>
+
         <article>
-            <section id="introduction">
+            <section id="introduction" class="content-section">
                 <h2>Introduction</h2>
-                <p>Model Context Protocol (MCP) is a powerful framework for building AI-powered applications. This guide will walk you through setting up an MCP server using various AI agents and LLMs, including Claude, Cursor, and Windsurf.</p>
+                <p>This guide will walk you through setting up MCP Server with various AI agents. The process is similar for each agent, requiring you to create an `mcp.json` configuration file with the appropriate settings.</p>
+                <div class="info-box">
+                    <h3>What is MCP?</h3>
+                    <p>MCP (Model Context Protocol) is a standardized way to integrate AI agents into your development environment, enabling seamless communication between different AI models.</p>
+                </div>
             </section>
 
-            <section id="prerequisites">
-                <h2>Prerequisites</h2>
-                <ul>
-                    <li>Python 3.8 or higher</li>
-                    <li>Git</li>
-                    <li>Basic understanding of AI/LLM concepts</li>
-                    <li>API keys for the AI services you plan to use</li>
-                </ul>
-            </section>
-
-            <section id="setup">
-                <h2>Initial Setup</h2>
-                <p>First, let's create a new project directory and set up the basic structure:</p>
-                <pre><code class="language-bash">mkdir mcp-project
-cd mcp-project
-python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate</code></pre>
-            </section>
-
-            <section id="configuration">
-                <h2>Configuration</h2>
-                <p>Create a configuration file for your MCP server:</p>
-                <pre><code class="language-python"># config.py
-MCP_CONFIG = {
-    "server": {
-        "host": "localhost",
-        "port": 8000,
-        "debug": True
-    },
-    "ai_agents": {
-        "claude": {
-            "api_key": "your-claude-api-key",
-            "model": "claude-3-opus-20240229"
-        },
-        "cursor": {
-            "api_key": "your-cursor-api-key"
-        },
-        "windsurf": {
-            "api_key": "your-windsurf-api-key"
-        }
+            <section id="cursor" class="content-section">
+                <h2>Setting Up Cursor</h2>
+                <div class="setup-steps">
+                    <div class="step">
+                        <h3>Step 1: Open Cursor</h3>
+                        <p>Launch the Cursor application on your system.</p>
+                    </div>
+                    <div class="step">
+                        <h3>Step 2: Access Settings</h3>
+                        <p>Click the settings icon in the top right corner of the application.</p>
+                    </div>
+                    <div class="step">
+                        <h3>Step 3: Configure MCP</h3>
+                        <p>Select the MCP tab in the settings menu.</p>
+                    </div>
+                    <div class="step">
+                        <h3>Step 4: Create mcp.json</h3>
+                        <p>Create a new file named `mcp.json` with the following configuration:</p>
+                        <div class="code-block">
+                            <pre><code class="language-json">{
+  "mcpServers": {
+    "file-system": {
+      "command": "/absolute/path/to/p.code-language",
+      "args": [
+        "/absolute/path/to/mcp-server.code-extention"
+      ]
     }
+  }
 }</code></pre>
+                        </div>
+                    </div>
+                </div>
             </section>
 
-            <section id="usage">
-                <h2>Usage Examples</h2>
-                <p>Here's how to use the MCP server with different AI agents:</p>
-                <pre><code class="language-python">from mcp.server import MCPServer
-from mcp.agents import ClaudeAgent, CursorAgent, WindsurfAgent
-
-# Initialize agents
-claude_agent = ClaudeAgent(api_key="your-claude-api-key")
-cursor_agent = CursorAgent(api_key="your-cursor-api-key")
-windsurf_agent = WindsurfAgent(api_key="your-windsurf-api-key")
-
-# Create and start server
-server = MCPServer(
-    agents=[claude_agent, cursor_agent, windsurf_agent],
-    config=MCP_CONFIG
-)
-server.start()</code></pre>
+            <section id="claude" class="content-section">
+                <h2>Setting Up Claude</h2>
+                <div class="setup-steps">
+                    <div class="step">
+                        <h3>Step 1: Open Claude</h3>
+                        <p>Launch the Claude application on your system.</p>
+                    </div>
+                    <div class="step">
+                        <h3>Step 2: Access Settings</h3>
+                        <p>Click the settings icon in the top right corner of the application.</p>
+                    </div>
+                    <div class="step">
+                        <h3>Step 3: Configure MCP</h3>
+                        <p>Select the MCP tab in the settings menu.</p>
+                    </div>
+                    <div class="step">
+                        <h3>Step 4: Create mcp.json</h3>
+                        <p>Create a new file named `mcp.json` with the following configuration:</p>
+                        <div class="code-block">
+                            <pre><code class="language-json">{
+  "mcpServers": {
+    "file-system": {
+      "command": "/absolute/path/to/p.code-language",
+      "args": [
+        "/absolute/path/to/mcp-server.code-extention"
+      ]
+    }
+  }
+}</code></pre>
+                        </div>
+                    </div>
+                </div>
             </section>
 
-            <section id="conclusion">
+            <section id="windsurf" class="content-section">
+                <h2>Setting Up Windsurf</h2>
+                <div class="setup-steps">
+                    <div class="step">
+                        <h3>Step 1: Open Windsurf</h3>
+                        <p>Launch the Windsurf application on your system.</p>
+                    </div>
+                    <div class="step">
+                        <h3>Step 2: Access Settings</h3>
+                        <p>Click the settings icon in the top right corner of the application.</p>
+                    </div>
+                    <div class="step">
+                        <h3>Step 3: Configure MCP</h3>
+                        <p>Select the MCP tab in the settings menu.</p>
+                    </div>
+                    <div class="step">
+                        <h3>Step 4: Create mcp.json</h3>
+                        <p>Create a new file named `mcp.json` with the following configuration:</p>
+                        <div class="code-block">
+                            <pre><code class="language-json">{
+  "mcpServers": {
+    "file-system": {
+      "command": "/absolute/path/to/p.code-language",
+      "args": [
+        "/absolute/path/to/mcp-server.code-extention"
+      ]
+    }
+  }
+}</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="conclusion" class="content-section">
                 <h2>Conclusion</h2>
-                <p>Setting up an MCP server with AI agents opens up powerful possibilities for building AI-powered applications. This guide provides the foundation for getting started with MCP, Claude, Cursor, and Windsurf integration.</p>
+                <p>You've now set up MCP Server with your preferred AI agents. The configuration process is similar across all agents, requiring you to create an `mcp.json` file with the appropriate settings.</p>
+                <div class="next-steps">
+                    <h3>Next Steps</h3>
+                    <ul>
+                        <li>Test your MCP Server configuration</li>
+                        <li>Explore advanced MCP features</li>
+                        <li>Customize your AI agent settings</li>
+                    </ul>
+                </div>
             </section>
         </article>
     </main>
 
     <footer>
-        <p>Created with ❤️ for the AI community</p>
-        <p>Last updated: March 2024</p>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>MCP Server Guide</h3>
+                <p>Created with ❤️ for the AI community</p>
+            </div>
+            <div class="footer-section">
+                <h3>Resources</h3>
+                <ul>
+                    <li><a href="#">Documentation</a></li>
+                    <li><a href="#">GitHub</a></li>
+                    <li><a href="#">Community</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>Questions? Reach out to us!</p>
+                <a href="#" class="button secondary">Get in Touch</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Last updated: March 2024</p>
+        </div>
     </footer>
 
     <script src="script.js"></script>
