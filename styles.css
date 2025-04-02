@@ -302,16 +302,19 @@ footer {
     display: inline-block;
     padding: 0.75rem 1.5rem;
     background: var(--secondary-color);
-    color: var(--text-color);
+    color: var(--background-color) !important;
     text-decoration: none;
     border-radius: 6px;
     font-weight: 500;
     transition: var(--transition-all);
+    font-size: 0.9375rem;
+    line-height: 1.5;
 }
 
 .button:hover {
     background: var(--accent-color);
     transform: translateY(-1px);
+    opacity: 1;
 }
 
 .button .arrow {
