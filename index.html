@@ -13,13 +13,10 @@
     <header>
         <nav>
             <div class="nav-content">
-                <div class="nav-logo">
-                    <img src="data/mcp-logo.svg" alt="MCP Logo" height="32">
-                </div>
                 <div class="nav-links">
                     <a href="#introduction">Overview</a>
-                    <a href="#cursor">Cursor</a>
                     <a href="#claude">Claude</a>
+                    <a href="#cursor">Cursor</a>
                     <a href="#windsurf">Windsurf</a>
                     <a href="#next-steps">Next Steps</a>
                 </div>
@@ -39,16 +36,17 @@
             <div class="sidebar-section">
                 <h3>Setup Guides</h3>
                 <ul>
-                    <li><a href="#cursor">Cursor</a></li>
                     <li><a href="#claude">Claude</a></li>
+                    <li><a href="#cursor">Cursor</a></li>
                     <li><a href="#windsurf">Windsurf</a></li>
                 </ul>
             </div>
             <div class="sidebar-section">
                 <h3>Additional Resources</h3>
                 <ul>
+                    <li><a href="#supported-clients">Supported Clients</a></li>
                     <li><a href="#next-steps">Next Steps</a></li>
-                    <li><a href="https://github.com/yourusername/mcp-configuration">GitHub</a></li>
+                    <li><a href="https://github.com/modelcontextprotocol/servers" target="_blank">GitHub</a></li>
                 </ul>
             </div>
         </nav>
@@ -69,36 +67,58 @@
             <section id="prerequisites" class="content-section">
                 <h2>Prerequisites</h2>
                 <ul>
-                    <li>Node.js installed on your system</li>
                     <li>Your preferred AI development tool (Cursor, Claude, or Windsurf)</li>
                     <li>Basic understanding of JSON configuration files</li>
                 </ul>
             </section>
 
-            <section id="cursor" class="content-section">
-                <h2>Setting Up Cursor</h2>
-                <div class="setup-steps">
-                    <div class="step">
-                        <h3>Step 1: Create Configuration Directory</h3>
-                        <p>Create a <code>.cursor</code> directory in your project root if it doesn't exist.</p>
+            <section id="supported-clients" class="content-section">
+                <h2>Supported Clients</h2>
+                <p>MCP is supported by a growing ecosystem of AI development tools and platforms. Here are some of the major clients that support MCP integration:</p>
+                
+                <div class="client-list">
+                    <div class="client-category">
+                        <h3>Full Feature Support</h3>
+                        <ul>
+                            <li>Claude Desktop App</li>
+                            <li>Continue</li>
+                            <li>fast-agent</li>
+                        </ul>
                     </div>
-                    <div class="step">
-                        <h3>Step 2: Create Configuration File</h3>
-                        <p>Create a <code>.cursor/mcp.json</code> file with the following configuration:</p>
-                        <div class="code-block">
-                            <pre><code class="language-json">{
-  "mcpServers": {
-    "file-system": {
-      "command": "npx",
-      "args": ["-y", "@modelcontextprotocol/server-fs"]
-    }
-  }
-}</code></pre>
-                        </div>
+                    
+                    <div class="client-category">
+                        <h3>IDE Integration</h3>
+                        <ul>
+                            <li>Cursor</li>
+                            <li>Cline (VS Code)</li>
+                            <li>Roo Code</li>
+                            <li>Sourcegraph Cody</li>
+                            <li>TheiaAI/TheiaIDE</li>
+                            <li>Windsurf Editor</li>
+                            <li>Zed</li>
+                            <li>OpenSumi</li>
+                        </ul>
                     </div>
-                    <div class="step">
-                        <h3>Step 3: Verify Configuration</h3>
-                        <p>Open Cursor and navigate to Settings/MCP. You should see a green active status after the server is successfully connected.</p>
+                    
+                    <div class="client-category">
+                        <h3>AI Assistants & Frameworks</h3>
+                        <ul>
+                            <li>5ire</li>
+                            <li>BeeAI Framework</li>
+                            <li>Copilot-MCP</li>
+                            <li>Emacs Mcp</li>
+                            <li>Genkit</li>
+                            <li>GenAIScript</li>
+                            <li>Goose</li>
+                            <li>LibreChat</li>
+                            <li>mcp-agent</li>
+                            <li>Microsoft Copilot Studio</li>
+                            <li>oterm</li>
+                            <li>SpinAI</li>
+                            <li>Superinterface</li>
+                            <li>Witsy</li>
+                            <li>Daydreams</li>
+                        </ul>
                     </div>
                 </div>
             </section>
@@ -118,7 +138,7 @@
   "mcpServers": {
     "file-system": {
       "command": "npx",
-      "args": ["-y", "@modelcontextprotocol/server-fs"]
+      "args": ["-y", "@modelcontextprotocol/server-script"]
     }
   }
 }</code></pre>
@@ -131,30 +151,77 @@
                 </div>
             </section>
 
-            <section id="windsurf" class="content-section">
-                <h2>Setting Up Windsurf</h2>
+            <section id="cursor" class="content-section">
+                <h2>Setting Up Cursor</h2>
                 <div class="setup-steps">
                     <div class="step">
-                        <h3>Step 1: Open Cascade Assistant</h3>
-                        <p>Open Windsurf and navigate to the Cascade assistant.</p>
+                        <h3>Step 1: Create Configuration Directory</h3>
+                        <p>Create a <code>.cursor</code> directory in your project root if it doesn't exist.</p>
                     </div>
                     <div class="step">
-                        <h3>Step 2: Configure MCP</h3>
-                        <p>Click the hammer (MCP) icon, then Configure to add the following configuration:</p>
+                        <h3>Step 2: Create Configuration File</h3>
+                        <p>Create a <code>.cursor/mcp.json</code> file with the following configuration:</p>
                         <div class="code-block">
                             <pre><code class="language-json">{
   "mcpServers": {
     "file-system": {
       "command": "npx",
-      "args": ["-y", "@modelcontextprotocol/server-fs"]
+      "args": ["-y", "@modelcontextprotocol/server-script"]
     }
   }
 }</code></pre>
                         </div>
                     </div>
                     <div class="step">
-                        <h3>Step 3: Refresh Configuration</h3>
-                        <p>Save the configuration file and click Refresh in the Cascade assistant. You should see a green active status.</p>
+                        <h3>Step 3: Verify Configuration</h3>
+                        <p>Open Cursor and navigate to Settings/MCP. You should see a green active status after the server is successfully connected.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="windsurf" class="content-section">
+                <h2>Setting Up Windsurf</h2>
+                <div class="setup-steps">
+                    <div class="step">
+                        <h3>Step 1: Access Settings</h3>
+                        <p>Navigate to Windsurf - Settings > Advanced Settings or use Command Palette > Open Windsurf Settings Page.</p>
+                    </div>
+                    <div class="step">
+                        <h3>Step 2: Add MCP Server</h3>
+                        <p>Scroll down to the Cascade section. You'll find options to:</p>
+                        <ul>
+                            <li>Add a new server</li>
+                            <li>View existing servers</li>
+                            <li>View the raw JSON config file at <code>mcp_config.json</code></li>
+                        </ul>
+                        <p>Click the "Add Server" button to choose from pre-populated servers, or click "Add custom server +" to add your own server directly in <code>mcp_config.json</code>.</p>
+                    </div>
+                    <div class="step">
+                        <h3>Step 3: Configure MCP</h3>
+                        <p>If adding a custom server, edit <code>~/.codeium/windsurf/mcp_config.json</code> with your configuration:</p>
+                        <div class="code-block">
+                            <pre><code class="language-json">{
+  "mcpServers": {
+    "file-system": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-script"]
+    }
+  }
+}</code></pre>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <h3>Step 4: Refresh Configuration</h3>
+                        <p>After adding a new MCP server, make sure to press the refresh button to apply the changes.</p>
+                    </div>
+                    <div class="info-box">
+                        <h3>Important Notes</h3>
+                        <ul>
+                            <li>MCP tool calls will consume credits regardless of success or failure</li>
+                            <li>Only tools are supported (not prompts or resources)</li>
+                            <li>Tools that output images are not supported</li>
+                            <li>Only servers using the <code>stdio</code> transport type are supported</li>
+                        </ul>
                     </div>
                 </div>
             </section>
@@ -178,14 +245,13 @@
                 <h3>Documentation</h3>
                 <ul>
                     <li><a href="#">Getting Started</a></li>
-                    <li><a href="#">API Reference</a></li>
                     <li><a href="#">Examples</a></li>
                 </ul>
             </div>
             <div class="footer-section">
                 <h3>Community</h3>
                 <ul>
-                    <li><a href="#">GitHub</a></li>
+                    <li><a href="https://github.com/modelcontextprotocol/servers" target="_blank">GitHub</a></li>
                     <li><a href="#">Discord</a></li>
                     <li><a href="#">Twitter</a></li>
                 </ul>
@@ -194,8 +260,7 @@
                 <h3>Support</h3>
                 <ul>
                     <li><a href="#">FAQ</a></li>
-                    <li><a href="#">Contact</a></li>
-                    <li><a href="#">Status</a></li>
+                    <li><a href="https://www.linkedin.com/in/calebmwelsh/" target="_blank">Contact</a></li>
                 </ul>
             </div>
         </div>
