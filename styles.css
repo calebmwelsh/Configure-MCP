@@ -492,6 +492,16 @@ footer {
     font-family: var(--font-mono);
 }
 
+.content-section a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    transition: var(--transition-all);
+}
+
+.content-section a:hover {
+    opacity: 0.8;
+}
+
 /* Improved scrollbar styling */
 ::-webkit-scrollbar {
     width: 10px;
@@ -556,4 +566,12 @@ footer {
 .client-category li:hover {
     color: var(--text-color);
     padding-left: 0.5rem;
+}
+
+.note {
+    color: var(--text-secondary);
+    font-size: 0.9375rem;
+    margin-top: 1rem;
+    padding-left: 1rem;
+    border-left: 2px solid var(--border-color);
 } 
