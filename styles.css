@@ -43,35 +43,49 @@ header {
     -webkit-backdrop-filter: blur(12px);
 }
 
+/* Navigation */
+.nav-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: var(--nav-height);
+    background: var(--background-color);
+    border-bottom: 1px solid var(--border-color);
+    z-index: 100;
+    backdrop-filter: blur(10px);
+}
+
 .nav-content {
     max-width: var(--max-width);
     margin: 0 auto;
-    padding: 0 2rem;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100%;
+    padding: 0 2rem;
 }
 
 .nav-links {
     display: flex;
     gap: 2rem;
-    justify-content: center;
+    align-items: center;
 }
 
 .nav-links a {
     color: var(--text-secondary);
     text-decoration: none;
-    font-size: 0.875rem;
+    font-size: 0.9375rem;
     font-weight: 500;
+    padding: 0.5rem 0;
+    border-bottom: 2px solid transparent;
     transition: var(--transition-all);
-    padding: 0.5rem 0.75rem;
-    border-radius: 4px;
 }
 
-.nav-links a:hover {
+.nav-links a:hover,
+.nav-links a.active {
     color: var(--text-color);
-    background: rgba(255, 255, 255, 0.05);
+    border-bottom-color: var(--accent-color);
 }
 
 /* Main Content */
@@ -215,6 +229,10 @@ main {
     font-size: 1.2em;
 }
 
+.info-box .button {
+    margin-top: 1rem;
+}
+
 /* Next Steps */
 .next-steps {
     background: var(--code-background);
@@ -281,29 +299,19 @@ footer {
 
 /* Button Styles */
 .button {
-    display: inline-flex;
-    align-items: center;
-    padding: 0.5rem 1rem;
-    border-radius: 4px;
-    font-size: 0.875rem;
-    font-weight: 500;
-    transition: all 0.2s ease;
-    text-decoration: none;
-}
-
-.button.primary {
-    background-color: var(--secondary-color);
-    color: var(--background-color);
-}
-
-.button.secondary {
-    background-color: var(--code-background);
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background: var(--secondary-color);
     color: var(--text-color);
-    border: 1px solid var(--border-color);
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 500;
+    transition: var(--transition-all);
 }
 
 .button:hover {
-    opacity: 0.9;
+    background: var(--accent-color);
+    transform: translateY(-1px);
 }
 
 /* Responsive Design */
