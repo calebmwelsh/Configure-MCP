@@ -3,89 +3,102 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Setting Up MCP Server with AI Agents: A Step-by-Step Guide</title>
+    <title>Model Context Protocol (MCP) Setup Guide</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism-tomorrow.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-python.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-json.min.js"></script>
 </head>
 <body>
     <header>
         <nav>
             <div class="nav-content">
-                <h1>MCP Server Setup Guide</h1>
+                <div class="nav-logo">
+                    <img src="data/mcp-logo.svg" alt="MCP Logo" height="32">
+                </div>
                 <div class="nav-links">
-                    <a href="#introduction">Introduction</a>
+                    <a href="#introduction">Overview</a>
                     <a href="#cursor">Cursor</a>
                     <a href="#claude">Claude</a>
                     <a href="#windsurf">Windsurf</a>
-                    <a href="#conclusion">Conclusion</a>
+                    <a href="#next-steps">Next Steps</a>
                 </div>
             </div>
         </nav>
     </header>
 
-    <main>
-        <section class="hero">
-            <div class="hero-content">
-                <h1>Setting Up MCP Server with AI Agents</h1>
-                <p>A step-by-step guide to implementing MCP Server with your favorite AI agents</p>
-                <div class="hero-buttons">
-                    <a href="#introduction" class="button primary">Get Started</a>
-                    <a href="https://github.com/yourusername/mcp-configuration" class="button secondary">View on GitHub</a>
-                </div>
+    <aside class="sidebar">
+        <nav class="sidebar-nav">
+            <div class="sidebar-section">
+                <h3>Getting Started</h3>
+                <ul>
+                    <li><a href="#introduction" class="active">Overview</a></li>
+                    <li><a href="#prerequisites">Prerequisites</a></li>
+                </ul>
             </div>
-        </section>
+            <div class="sidebar-section">
+                <h3>Setup Guides</h3>
+                <ul>
+                    <li><a href="#cursor">Cursor</a></li>
+                    <li><a href="#claude">Claude</a></li>
+                    <li><a href="#windsurf">Windsurf</a></li>
+                </ul>
+            </div>
+            <div class="sidebar-section">
+                <h3>Additional Resources</h3>
+                <ul>
+                    <li><a href="#next-steps">Next Steps</a></li>
+                    <li><a href="https://github.com/yourusername/mcp-configuration">GitHub</a></li>
+                </ul>
+            </div>
+        </nav>
+    </aside>
 
+    <main>
         <article>
             <section id="introduction" class="content-section">
-                <h2>Introduction</h2>
-                <p>This guide will walk you through setting up MCP Server with various AI agents. The process is similar for each agent, requiring you to create an `mcp.json` configuration file with the appropriate settings.</p>
+                <h1>Model Context Protocol (MCP)</h1>
+                <p>The Model Context Protocol (MCP) is a standard for connecting Large Language Models (LLMs) to external services. This guide covers how to set up MCP with various AI development tools.</p>
+                
                 <div class="info-box">
                     <h3>What is MCP?</h3>
-                    <p>MCP (Model Context Protocol) is a standardized way to integrate AI agents into your development environment, enabling seamless communication between different AI models.</p>
+                    <p>MCP enables seamless communication between different AI models and your development environment, allowing for enhanced functionality and integration capabilities.</p>
                 </div>
+            </section>
+
+            <section id="prerequisites" class="content-section">
+                <h2>Prerequisites</h2>
+                <ul>
+                    <li>Node.js installed on your system</li>
+                    <li>Your preferred AI development tool (Cursor, Claude, or Windsurf)</li>
+                    <li>Basic understanding of JSON configuration files</li>
+                </ul>
             </section>
 
             <section id="cursor" class="content-section">
                 <h2>Setting Up Cursor</h2>
                 <div class="setup-steps">
                     <div class="step">
-                        <h3>Step 1: Open Cursor</h3>
-                        <p>Launch the Cursor application on your system.</p>
-                        <div class="step-image">
-                            <img src="data/cursor-open.png" alt="Opening Cursor application" loading="lazy">
-                        </div>
+                        <h3>Step 1: Create Configuration Directory</h3>
+                        <p>Create a <code>.cursor</code> directory in your project root if it doesn't exist.</p>
                     </div>
                     <div class="step">
-                        <h3>Step 2: Access Settings</h3>
-                        <p>Click the settings icon in the top right corner of the application.</p>
-                        <div class="step-image">
-                            <img src="data/cursor-settings.png" alt="Accessing Cursor settings" loading="lazy">
-                        </div>
-                    </div>
-                    <div class="step">
-                        <h3>Step 3: Configure MCP</h3>
-                        <p>Select the MCP tab in the settings menu.</p>
-                        <div class="step-image">
-                            <img src="data/cursor-mcp.png" alt="Configuring MCP in Cursor" loading="lazy">
-                        </div>
-                    </div>
-                    <div class="step">
-                        <h3>Step 4: Create mcp.json</h3>
-                        <p>Create a new file named `mcp.json` with the following configuration:</p>
+                        <h3>Step 2: Create Configuration File</h3>
+                        <p>Create a <code>.cursor/mcp.json</code> file with the following configuration:</p>
                         <div class="code-block">
                             <pre><code class="language-json">{
   "mcpServers": {
     "file-system": {
-      "command": "/absolute/path/to/p.code-language",
-      "args": [
-        "/absolute/path/to/mcp-server.code-extention"
-      ]
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-fs"]
     }
   }
 }</code></pre>
                         </div>
+                    </div>
+                    <div class="step">
+                        <h3>Step 3: Verify Configuration</h3>
+                        <p>Open Cursor and navigate to Settings/MCP. You should see a green active status after the server is successfully connected.</p>
                     </div>
                 </div>
             </section>
@@ -94,41 +107,26 @@
                 <h2>Setting Up Claude</h2>
                 <div class="setup-steps">
                     <div class="step">
-                        <h3>Step 1: Open Claude</h3>
-                        <p>Launch the Claude application on your system.</p>
-                        <div class="step-image">
-                            <img src="data/claude-open.png" alt="Opening Claude application" loading="lazy">
-                        </div>
+                        <h3>Step 1: Access Settings</h3>
+                        <p>Open Claude desktop and navigate to Settings > Developer.</p>
                     </div>
                     <div class="step">
-                        <h3>Step 2: Access Settings</h3>
-                        <p>Click the settings icon in the top right corner of the application.</p>
-                        <div class="step-image">
-                            <img src="data/claude-settings.png" alt="Accessing Claude settings" loading="lazy">
-                        </div>
-                    </div>
-                    <div class="step">
-                        <h3>Step 3: Configure MCP</h3>
-                        <p>Select the MCP tab in the settings menu.</p>
-                        <div class="step-image">
-                            <img src="data/claude-mcp.png" alt="Configuring MCP in Claude" loading="lazy">
-                        </div>
-                    </div>
-                    <div class="step">
-                        <h3>Step 4: Create mcp.json</h3>
-                        <p>Create a new file named `mcp.json` with the following configuration:</p>
+                        <h3>Step 2: Configure MCP</h3>
+                        <p>Click "Edit Config" and add the following configuration:</p>
                         <div class="code-block">
                             <pre><code class="language-json">{
   "mcpServers": {
     "file-system": {
-      "command": "/absolute/path/to/p.code-language",
-      "args": [
-        "/absolute/path/to/mcp-server.code-extention"
-      ]
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-fs"]
     }
   }
 }</code></pre>
                         </div>
+                    </div>
+                    <div class="step">
+                        <h3>Step 3: Restart Claude</h3>
+                        <p>Restart Claude desktop to apply the new configuration. You should see a hammer (MCP) icon appear with the new MCP server available.</p>
                     </div>
                 </div>
             </section>
@@ -137,54 +135,37 @@
                 <h2>Setting Up Windsurf</h2>
                 <div class="setup-steps">
                     <div class="step">
-                        <h3>Step 1: Open Windsurf</h3>
-                        <p>Launch the Windsurf application on your system.</p>
-                        <div class="step-image">
-                            <img src="data/windsurf-open.png" alt="Opening Windsurf application" loading="lazy">
-                        </div>
+                        <h3>Step 1: Open Cascade Assistant</h3>
+                        <p>Open Windsurf and navigate to the Cascade assistant.</p>
                     </div>
                     <div class="step">
-                        <h3>Step 2: Access Settings</h3>
-                        <p>Click the settings icon in the top right corner of the application.</p>
-                        <div class="step-image">
-                            <img src="data/windsurf-settings.png" alt="Accessing Windsurf settings" loading="lazy">
-                        </div>
-                    </div>
-                    <div class="step">
-                        <h3>Step 3: Configure MCP</h3>
-                        <p>Select the MCP tab in the settings menu.</p>
-                        <div class="step-image">
-                            <img src="data/windsurf-mcp.png" alt="Configuring MCP in Windsurf" loading="lazy">
-                        </div>
-                    </div>
-                    <div class="step">
-                        <h3>Step 4: Create mcp.json</h3>
-                        <p>Create a new file named `mcp.json` with the following configuration:</p>
+                        <h3>Step 2: Configure MCP</h3>
+                        <p>Click the hammer (MCP) icon, then Configure to add the following configuration:</p>
                         <div class="code-block">
                             <pre><code class="language-json">{
   "mcpServers": {
     "file-system": {
-      "command": "/absolute/path/to/p.code-language",
-      "args": [
-        "/absolute/path/to/mcp-server.code-extention"
-      ]
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-fs"]
     }
   }
 }</code></pre>
                         </div>
                     </div>
+                    <div class="step">
+                        <h3>Step 3: Refresh Configuration</h3>
+                        <p>Save the configuration file and click Refresh in the Cascade assistant. You should see a green active status.</p>
+                    </div>
                 </div>
             </section>
 
-            <section id="conclusion" class="content-section">
-                <h2>Conclusion</h2>
-                <p>You've now set up MCP Server with your preferred AI agents. The configuration process is similar across all agents, requiring you to create an `mcp.json` file with the appropriate settings.</p>
+            <section id="next-steps" class="content-section">
+                <h2>Next Steps</h2>
                 <div class="next-steps">
-                    <h3>Next Steps</h3>
                     <ul>
-                        <li>Test your MCP Server configuration</li>
-                        <li>Explore advanced MCP features</li>
-                        <li>Customize your AI agent settings</li>
+                        <li>Test your MCP configuration with basic file system operations</li>
+                        <li>Explore advanced MCP features and capabilities</li>
+                        <li>Connect additional MCP servers for extended functionality</li>
                     </ul>
                 </div>
             </section>
@@ -194,25 +175,29 @@
     <footer>
         <div class="footer-content">
             <div class="footer-section">
-                <h3>MCP Server Guide</h3>
-                <p>Created with ❤️ for the AI community</p>
-            </div>
-            <div class="footer-section">
-                <h3>Resources</h3>
+                <h3>Documentation</h3>
                 <ul>
-                    <li><a href="#">Documentation</a></li>
-                    <li><a href="#">GitHub</a></li>
-                    <li><a href="#">Community</a></li>
+                    <li><a href="#">Getting Started</a></li>
+                    <li><a href="#">API Reference</a></li>
+                    <li><a href="#">Examples</a></li>
                 </ul>
             </div>
             <div class="footer-section">
-                <h3>Contact</h3>
-                <p>Questions? Reach out to us!</p>
-                <a href="#" class="button secondary">Get in Touch</a>
+                <h3>Community</h3>
+                <ul>
+                    <li><a href="#">GitHub</a></li>
+                    <li><a href="#">Discord</a></li>
+                    <li><a href="#">Twitter</a></li>
+                </ul>
             </div>
-        </div>
-        <div class="footer-bottom">
-            <p>Last updated: March 2024</p>
+            <div class="footer-section">
+                <h3>Support</h3>
+                <ul>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">Status</a></li>
+                </ul>
+            </div>
         </div>
     </footer>
 
