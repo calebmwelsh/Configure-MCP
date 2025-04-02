@@ -314,6 +314,16 @@ footer {
     transform: translateY(-1px);
 }
 
+.button .arrow {
+    display: inline-block;
+    margin-left: 0.5rem;
+    transition: transform 0.2s ease;
+}
+
+.button:hover .arrow {
+    transform: translateX(4px);
+}
+
 /* Responsive Design */
 @media (max-width: 1024px) {
     .sidebar {
